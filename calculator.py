@@ -4,32 +4,54 @@
 import math
 #Hmm yes, i will import math for calculator project
 
+# Safe number input
+def safe_float_input(prompt):
+    result = None
+
+    # Loop while no result has been accuired
+    while result == None:
+        # Prompt user for input
+        userinput = input(prompt)
+
+        # Attempt to cast to float
+        try:
+            result = float(userinput)
+        except:
+            # Ensure that result is stil None
+            result = None
+            
+            # Print an error message
+            print("Error: invalid input.")
+
+    # Return the result
+    return result
+
 def addition():
     #Addition could be modeled better as with all other functions
-    add0=input("Number 0? ")
-    add1=input("Number 2? ")
-    answadd=float(add0)+float(add1)
+    add0 = safe_float_input("Number 0? ")
+    add1 = safe_float_input("Number 1? ")
+    answadd=add0+add1
     print("The answer is: ", float(answadd)) if float(answadd)>answadd else print("The answer is ", int(answadd))
     #I definetly wrote the code above
 
 def subtraction():
-    sub0= input("Number 0? ")
-    sub1= input("Number 1? ")
+    sub0 = safe_float_input("Number 0? ")
+    sub1 = safe_float_input("Number 1? ")
     answsub=float(sub0)-float(sub1, base=0)
     print("The answer is: ", answsub)
 
 def multiplication():
-    mul0= input("Number 0? ")
-    mul1= input("Number 1? ")
+    mul0 = safe_float_input("Number 0? ")
+    mul1 = safe_float_input("Number 1? ")
     answmul=float(mul0)*float(mul1)
     print("The answer is: ", int(answmul)) if int(answmul)==float(answmul) else print(float(answmul))
 
 def division():
-    div0=input("Number0? ")
+    div0 = safe_float_input("Number0? ")
     if float(div0)==0.0: 
         print("Føkk deg, den går ikke")
         return
-    div1=input("Number1? ")
+    div1 = safe_float_input("Number1? ")
     if float(div1)==0: 
         print("Føkk deg, den går ikke")
         return
@@ -39,12 +61,12 @@ def division():
     #You didnt see anything
 
 def sqrt():
-    sqrt0=input("Number? ")
+    sqrt0 = safe_float_input("Number? ")
     anssqrt=math.sqrt(float(sqrt0))
     print(int(anssqrt)) if int(anssqrt) == anssqrt else print(anssqrt)
 
 def fac():
-    fac0=input("Number? ")
+    fac0 = safe_float_input("Number? ")
     #Do not look at this
     fac1=float(fac0)
     fac1=int(fac1)
